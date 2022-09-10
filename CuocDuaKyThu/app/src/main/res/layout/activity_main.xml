@@ -66,6 +66,7 @@
                 android:orientation="vertical">
 
                 <RadioGroup
+                    android:id="@+id/radioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -93,6 +94,7 @@
 
 
         <LinearLayout
+            android:paddingRight="18dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -103,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:thumb="@drawable/character1"
-                android:max="500"/>
+                android:max="300"/>
 
             <SeekBar
                 android:id="@+id/seekBar2"
@@ -111,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:thumb="@drawable/character2"
-                android:max="500"/>
+                android:max="300"/>
 
             <SeekBar
                 android:id="@+id/seekBar3"
@@ -119,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:thumb="@drawable/character3"
-                android:max="500"/>
+                android:max="300"/>
 
         </LinearLayout>
 
