@@ -105,7 +105,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:thumb="@drawable/character1"
-                android:max="300"/>
+                android:max="300"
+                android:progressDrawable="@android:color/transparent"/>
 
             <SeekBar
                 android:id="@+id/seekBar2"
@@ -113,7 +114,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:thumb="@drawable/character2"
-                android:max="300"/>
+                android:max="300"
+                android:progressDrawable="@android:color/transparent"/>
 
             <SeekBar
                 android:id="@+id/seekBar3"
@@ -121,7 +123,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:thumb="@drawable/character3"
-                android:max="300"/>
+                android:max="300"
+                android:progressDrawable="@android:color/transparent"/>
 
         </LinearLayout>
 

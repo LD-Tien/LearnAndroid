@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
         anhXa();
 
+        sbOne.setEnabled(false);
+        sbTwo.setEnabled(false);
+        sbThree.setEnabled(false);
+
         txtDiem.setText(soDiem + "");
 
         CountDownTimer countDownTimer = new CountDownTimer(60000, 1) {
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Bạn đoán sai rồi", Toast.LENGTH_SHORT).show();
                     }
                     txtDiem.setText(soDiem + "");
+                    enableCheckBox();
                 }
 
                 if(sbTwo.getProgress() >= sbTwo.getMax()) {
@@ -74,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Bạn đoán sai rồi", Toast.LENGTH_SHORT).show();
                     }
                     txtDiem.setText(soDiem + "");
+                    enableCheckBox();
                 }
 
                 if(sbThree.getProgress() >= sbThree.getMax()) {
@@ -89,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Bạn đoán  sai rồi", Toast.LENGTH_SHORT).show();
                     }
                     txtDiem.setText(soDiem + "");
+                    enableCheckBox();
                 }
                 sbOne.setProgress(sbOne.getProgress() + one);
                 sbTwo.setProgress(sbTwo.getProgress() + two);
@@ -110,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     sbTwo.setProgress(0);
                     sbThree.setProgress(0);
                     countDownTimer.start();
+                    disableCheckBox();
                 } else {
                     Toast.makeText(MainActivity.this, "Vui lòng đặt cược trước khi chơi", Toast.LENGTH_SHORT).show();
                 }
@@ -127,5 +135,17 @@ public class MainActivity extends AppCompatActivity {
         sbOne       = (SeekBar) findViewById(R.id.seekBar1);
         sbTwo       = (SeekBar) findViewById(R.id.seekBar2);
         sbThree     = (SeekBar) findViewById(R.id.seekBar3);
+    }
+
+    private void enableCheckBox() {
+        cbOne.setEnabled(true);
+        cbTwo.setEnabled(true);
+        cbThree.setEnabled(true);
+    }
+
+    private void disableCheckBox() {
+        cbOne.setEnabled(false);
+        cbTwo.setEnabled(false);
+        cbThree.setEnabled(false);
     }
 }
