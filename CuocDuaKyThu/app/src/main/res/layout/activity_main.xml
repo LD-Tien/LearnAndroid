@@ -19,8 +19,8 @@
     <ImageView
         android:id="@+id/imageLogo"
         android:layout_centerHorizontal="true"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
         android:src="@drawable/fgo_logo"/>
 
     <TextView
@@ -32,6 +32,7 @@
         android:fontFamily="sans-serif-black"
         android:paddingLeft="100dp"
         android:text="Marathon version"
+        android:textSize="10sp"
         android:textStyle="bold" />
     <TextView
         android:layout_width="wrap_content"
@@ -45,7 +46,7 @@
     <LinearLayout
         android:id="@+id/linearLayoutRaceTrack"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="225dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/race_track">
 
