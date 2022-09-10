@@ -18,10 +18,18 @@
 
     <ImageView
         android:id="@+id/imageLogo"
-        android:layout_centerHorizontal="true"
         android:layout_width="240dp"
         android:layout_height="50dp"
-        android:src="@drawable/fgo_logo"/>
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/fgo_logo" />
+
+    <ImageButton
+        android:id="@+id/imagePlay"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/start_character"
+        android:layout_marginLeft="100dp"
+        android:layout_above="@id/linearLayoutRaceTrack"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,13 +42,15 @@
         android:text="Marathon version"
         android:textSize="10sp"
         android:textStyle="bold" />
+
     <TextView
+        android:id="@+id/textviewDiem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/linearLayoutRaceTrack"
         android:text="100"
         android:textSize="32dp"
-        android:textStyle="bold"
-        android:layout_above="@id/linearLayoutRaceTrack"/>
+        android:textStyle="bold" />
 
 
     <LinearLayout
@@ -92,21 +102,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:thumb="@drawable/character1" />
+                android:thumb="@drawable/character1"
+                android:max="300"/>
 
             <SeekBar
                 android:id="@+id/seekBar2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:thumb="@drawable/character2"/>
+                android:thumb="@drawable/character2"
+                android:max="300"/>
 
             <SeekBar
                 android:id="@+id/seekBar3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:thumb="@drawable/character3"/>
+                android:thumb="@drawable/character3"
+                android:max="300"/>
 
         </LinearLayout>
 
