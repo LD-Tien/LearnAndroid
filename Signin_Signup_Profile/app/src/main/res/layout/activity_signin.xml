@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SigninActivity"
+    android:background="@drawable/wallpaper2">
+
+    <TextView
+        android:id="@+id/textViewSignin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIGN IN"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="100dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewSignin"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/editTextUserName"
+            android:layout_width="250dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_edittext"
+            android:hint="Username"
+            android:padding="16dp"
+            android:textColorHint="#BFFFFFFF"
+            android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+            android:drawablePadding="16dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="250dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_edittext"
+            android:hint="Password"
+            android:padding="16dp"
+            android:textColorHint="#BFFFFFFF"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:drawablePadding="16dp"
+            android:inputType="textPassword"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSignin"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/purple_200"
+            android:text="Sign in"
+            android:textStyle="bold"
+            android:textColor="@color/graylight"
+            app:cornerRadius="15dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSignup"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/graylight"
+            android:text="Sign Up"
+            android:textColor="@color/purple_200"
+            android:textStyle="bold"
+            app:cornerRadius="15dp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
