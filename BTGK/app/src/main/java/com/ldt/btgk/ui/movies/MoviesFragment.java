@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -46,6 +47,8 @@ public class MoviesFragment extends Fragment implements MovieRecyclerAdapter.OnM
         rcvMovie.setLayoutManager(linearLayoutManager);
         rcvMovie.setAdapter(movieRecyclerAdapter);
         rcvMovie.setItemAnimator(new DefaultItemAnimator());
+
+
         return root;
     }
 
@@ -91,11 +94,10 @@ public class MoviesFragment extends Fragment implements MovieRecyclerAdapter.OnM
 
     @Override
     public void onMovieClick(int position) {
-        Log.d("Clicked", "onMovieClick: ");
-
         Movie movie = movieList.get(position);
         Intent intent = new Intent(getActivity(), MovieDetailsActivity.class);
         intent.putExtra("movie", movie);
+        intent.putExtra("position" ,position);
         startActivity(intent);
     }
 }

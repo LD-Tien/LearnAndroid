@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,6 +47,13 @@ public class MovieRecyclerAdapter extends RecyclerView.Adapter<MovieRecyclerAdap
         if(movie == null) {
             return;
         }
+
+        holder.cbMovieFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                movieList.get(holder.getAdapterPosition()).setFavorite(b);
+            }
+        });
 
         holder.imgMovie.setImageResource(movie.getImgResource());
         holder.tvMovieName.setText(movie.getName());

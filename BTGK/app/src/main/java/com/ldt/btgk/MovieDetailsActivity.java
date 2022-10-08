@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ldt.btgk.ui.movies.MoviesFragment;
 
 public class MovieDetailsActivity extends AppCompatActivity {
     private ImageView imgMovie;
@@ -18,10 +21,15 @@ public class MovieDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
-        Movie movie = getIntent().getParcelableExtra("movie");
-
         anhXa();
         setDataDetailsMovie();
+
+        cbMovieFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+            }
+        });
     }
 
     private void anhXa() {
