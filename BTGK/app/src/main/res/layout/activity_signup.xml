@@ -51,7 +51,7 @@
                     android:id="@+id/edtFirstName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/light"/>
+                    android:textColor="@color/light" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -92,10 +92,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtUsernameSignup"
-                android:drawableStart="@drawable/ic_baseline_account_circle_24"
-                android:drawablePadding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_account_circle_24"
+                android:drawablePadding="12dp"
                 android:textColor="@color/light" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,15 +114,15 @@
             app:hintTextColor="@color/gray_light"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/light">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtPasswordSignup"
-                android:drawableStart="@drawable/ic_baseline_lock_24"
-                android:drawablePadding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_lock_24"
+                android:drawablePadding="12dp"
                 android:inputType="textPassword"
-                android:textColor="@color/light"
-                />
+                android:textColor="@color/light" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -143,10 +143,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtConfirmPasswordSignup"
-                android:drawableStart="@drawable/ic_baseline_lock_reset_24"
-                android:drawablePadding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_lock_reset_24"
+                android:drawablePadding="12dp"
                 android:inputType="textPassword"
                 android:textColor="@color/light"
 

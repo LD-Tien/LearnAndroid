@@ -14,5 +14,6 @@
         tools:listitem="@layout/movie_item"
         android:layoutAnimation="@anim/slide_in"
         android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
         />
 </RelativeLayout>

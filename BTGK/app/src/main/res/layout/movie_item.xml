@@ -3,34 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="12dp"
-    android:layout_marginRight="12dp"
-    app:cardCornerRadius="20dp">
+    android:layout_height="200dp"
+    app:cardCornerRadius="20dp"
+    android:layout_marginTop="12dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgMovie"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="75dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/vivy" />
+            android:src="@drawable/ic_launcher_background" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:orientation="horizontal">
             <ImageView
-                android:layout_weight="4"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
                 android:background="@color/black" />
+
             <ImageView
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:background="@drawable/gradient_background" />
 
         </LinearLayout>
@@ -45,9 +46,11 @@
             android:divider="@drawable/empty_tall_divider"
             android:gravity="center_vertical">
             <TextView
+                android:gravity="center_vertical"
                 android:id="@+id/tvMovieName"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:maxHeight="48dp"
                 android:text="Movie name "
                 android:textColor="@color/light"
                 android:textStyle="bold"
@@ -84,34 +87,60 @@
                 android:textSize="16sp"
                 android:textColor="@color/light"/>
 
+
+            <TextView
+                android:id="@+id/tvMovieRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="9.9"
+                android:textColor="#FFC107"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:drawableRight="@drawable/ic_baseline_star_rate_16"/>
         </LinearLayout>
 
-        <CheckBox
-            android:id="@+id/cbMovieFavorite"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:button="@drawable/state_checkbox"
-            android:buttonTint="@color/tomato"
+            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginBottom="8dp"
-            />
+            android:layout_margin="12dp"
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/tvMovieRate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="9.9"
-            android:textColor="#FFC107"
-            android:textSize="12sp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/cbMovieFavorite"
-            android:layout_marginRight="24dp"
-            android:layout_marginTop="100dp"
-            android:textStyle="bold"
-            android:drawableLeft="@drawable/ic_baseline_star_rate_12"/>
+            <CheckBox
+                android:id="@+id/cbMovieFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:button="@drawable/state_checkbox"
+                android:buttonTint="@color/tomato" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-12dp"
+                android:text="2k"
+                android:textStyle="bold"
+                android:textColor="@color/tomato"
+                />
+        </LinearLayout>
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvMovieRate"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="9.9"-->
+<!--            android:textColor="#FFC107"-->
+<!--            android:textSize="12sp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_below="@+id/cbMovieFavorite"-->
+<!--            android:layout_marginRight="24dp"-->
+<!--            android:layout_marginTop="100dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:drawableLeft="@drawable/ic_baseline_star_rate_12"/>-->
         </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

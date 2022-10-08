@@ -51,21 +51,31 @@ public class MoviesFragment extends Fragment implements MovieRecyclerAdapter.OnM
 
     private List<Movie> getListMovie() {
         movieList = new ArrayList<>();
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
-        movieList.add(new Movie(R.drawable.vivy, "Vivy", "12ep", "Action", (short) 2021, "abc",9.1, true));
+        movieList.add(new Movie(R.drawable.avatar2, "Avatar 2", "2h41m", "Action/Sci-fi", (short) 2022, "abc",9.1, true));
+        movieList.add(new Movie(R.drawable.filnal_evangilion, "Evangelion: 3.0 + 1.0", "2h45m", "Action/Sci-fi", (short) 2022, "abc",9.0, true));
+        movieList.add(new Movie(R.drawable.cyperpuck_edgerunners, "Cyberpunk: Edgerunners", "10ep", "Action/Sci-fi", (short) 2022, "abc",8.9, true));
+        movieList.add(new Movie(R.drawable.a_space_odyssey, "2001: A Space Odyssey", "2h19m", "Sci-fi", (short) 1968, "abc",8.7, false));
+        movieList.add(new Movie(R.drawable.the_godfather, "The Godfather", "2h55m", "Thrillers", (short) 1972, "abc",8.6, false));
+        movieList.add(new Movie(R.drawable.avatar2, "Avatar 2", "2h41m", "Action/Sci-fi", (short) 2022, "abc",9.1, true));
+        movieList.add(new Movie(R.drawable.filnal_evangilion, "Evangelion: 3.0 + 1.0", "2h45m", "Action/Sci-fi", (short) 2022, "abc",9.0, true));
+        movieList.add(new Movie(R.drawable.cyperpuck_edgerunners, "Cyberpunk: Edgerunners", "10ep", "Action/Sci-fi", (short) 2022, "abc",8.9, true));
+        movieList.add(new Movie(R.drawable.a_space_odyssey, "2001: A Space Odyssey", "2h19m", "Sci-fi", (short) 1968, "abc",8.7, false));
+        movieList.add(new Movie(R.drawable.the_godfather, "The Godfather", "2h55m", "Thrillers", (short) 1972, "abc",8.6, false));
+        movieList.add(new Movie(R.drawable.avatar2, "Avatar 2", "2h41m", "Action/Sci-fi", (short) 2022, "abc",9.1, true));
+        movieList.add(new Movie(R.drawable.filnal_evangilion, "Evangelion: 3.0 + 1.0", "2h45m", "Action/Sci-fi", (short) 2022, "abc",9.0, true));
+        movieList.add(new Movie(R.drawable.cyperpuck_edgerunners, "Cyberpunk: Edgerunners", "10ep", "Action/Sci-fi", (short) 2022, "abc",8.9, true));
+        movieList.add(new Movie(R.drawable.a_space_odyssey, "2001: A Space Odyssey", "2h19m", "Sci-fi", (short) 1968, "abc",8.7, false));
+        movieList.add(new Movie(R.drawable.the_godfather, "The Godfather", "2h55m", "Thrillers", (short) 1972, "abc",8.6, false));
+        movieList.add(new Movie(R.drawable.avatar2, "Avatar 2", "2h41m", "Action/Sci-fi", (short) 2022, "abc",9.1, true));
+        movieList.add(new Movie(R.drawable.filnal_evangilion, "Evangelion: 3.0 + 1.0", "2h45m", "Action/Sci-fi", (short) 2022, "abc",9.0, true));
+        movieList.add(new Movie(R.drawable.cyperpuck_edgerunners, "Cyberpunk: Edgerunners", "10ep", "Action/Sci-fi", (short) 2022, "abc",8.9, true));
+        movieList.add(new Movie(R.drawable.a_space_odyssey, "2001: A Space Odyssey", "2h19m", "Sci-fi", (short) 1968, "abc",8.7, false));
+        movieList.add(new Movie(R.drawable.the_godfather, "The Godfather", "2h55m", "Thrillers", (short) 1972, "abc",8.6, false));
+        movieList.add(new Movie(R.drawable.avatar2, "Avatar 2", "2h41m", "Action/Sci-fi", (short) 2022, "abc",9.1, true));
+        movieList.add(new Movie(R.drawable.filnal_evangilion, "Evangelion: 3.0 + 1.0", "2h45m", "Action/Sci-fi", (short) 2022, "abc",9.0, true));
+        movieList.add(new Movie(R.drawable.cyperpuck_edgerunners, "Cyberpunk: Edgerunners", "10ep", "Action/Sci-fi", (short) 2022, "abc",8.9, true));
+        movieList.add(new Movie(R.drawable.a_space_odyssey, "2001: A Space Odyssey", "2h19m", "Sci-fi", (short) 1968, "abc",8.7, false));
+        movieList.add(new Movie(R.drawable.the_godfather, "The Godfather", "2h55m", "Thrillers", (short) 1972, "abc",8.6, false));
         return movieList;
     }
 
@@ -85,10 +95,6 @@ public class MoviesFragment extends Fragment implements MovieRecyclerAdapter.OnM
 
         Movie movie = movieList.get(position);
         Intent intent = new Intent(getActivity(), MovieDetailsActivity.class);
-//        intent.putExtra("imgResource", movieList.get(position).getImgResource());
-//        intent.putExtra("name", movieList.get(position).getName());
-//        intent.putExtra("duration", movieList.get(position).getDuration());
-//        intent.putExtra("productionYear", movieList.get(position).getProductionYear());
         intent.putExtra("movie", movie);
         startActivity(intent);
     }

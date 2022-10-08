@@ -42,8 +42,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
         tvMovieDuration.setText(movie.getDuration());
         tvMovieProductionYear.setText(movie.getProductionYear().toString());
         tvMovieCategories.setText(movie.getCategories());
-//        tvMovieRate.setText(movie.getRate().toString());
-//        cbMovieFavorite.setChecked(movie.isFavorite());
+        tvMovieRate.setText(movie.getRate().toString());
+        cbMovieFavorite.setChecked(movie.isFavorite());
         tvDescription.setText(movie.getDescription());
     }
 }
