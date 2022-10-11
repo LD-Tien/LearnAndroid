@@ -1,10 +1,9 @@
 package com.ldt.apptonghop;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,7 +28,7 @@ public class MoviesFragment extends Fragment implements MovieRecyclerAdapter.OnM
     private FragmentMoviesBinding binding;
     private RecyclerView rcvMovie;
     private MovieRecyclerAdapter movieRecyclerAdapter;
-    List<Movie> movieList;
+    private List<Movie> movieList;
 
 
     public MoviesFragment() {
@@ -105,13 +104,27 @@ public class MoviesFragment extends Fragment implements MovieRecyclerAdapter.OnM
 
     @Override
     public void onMovieClick(int position) {
-        replaceFragment(new MovieDetailsFragment());
+        Movie movie = movieList.get(position);
+        Intent intent = new Intent(getActivity(), MovieDetailsActivity.class);
+        intent.putExtra("movie", movie);
+        intent.putExtra("position" ,position);
+        startActivity(intent);
     }
 
     private void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout, fragment);
-        fragmentTransaction.commit();
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(
+                    R.anim.slide_in,
+                    R.anim.fade_out,
+                    R.anim.fade_in,
+                    R.anim.slide_out
+                )
+                .replace(R.id.frame_layout, fragment)
+                .addToBackStack(null)
+                .commit();
+//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.frame_layout, fragment).addToBackStack(null);
+//        fragmentTransaction.commit();
     }
 }

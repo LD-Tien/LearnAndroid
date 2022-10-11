@@ -215,13 +215,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogout"
-            android:paddingRight="20dp"
-            android:paddingLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="65dp"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="@color/tomato"
             android:drawableRight="@drawable/ic_baseline_logout_24"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:text="Log out"
             android:textColor="#fff"
             android:textSize="16sp"

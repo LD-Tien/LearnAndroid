@@ -1,9 +1,11 @@
 package com.ldt.apptonghop;
 
 import android.content.Context;
+import android.media.FaceDetector;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
@@ -98,5 +100,4 @@ public class MovieRecyclerAdapter extends RecyclerView.Adapter<MovieRecyclerAdap
     public interface OnMovieListener {
         void onMovieClick(int position);
     }
-
 }
