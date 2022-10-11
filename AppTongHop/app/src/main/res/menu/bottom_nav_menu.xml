@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/navMovies"
+        android:icon="@drawable/ic_baseline_local_movies_24"
+        android:title="Movies" />
+    <item
+        android:id="@+id/navProfile"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="Profile" />
+</menu>
