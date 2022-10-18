@@ -1,6 +1,8 @@
 package com.ldt.recyclerview;
 
-public class UserModel {
+import java.io.Serializable;
+
+public class UserModel implements Serializable {
     private String userName;
 
     public UserModel(String userName) {

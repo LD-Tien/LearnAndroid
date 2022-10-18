@@ -4,37 +4,88 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersAdapterVh> {
-    private List<UserModel> userModelList;
-    private Context context;
+public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersAdapterVh> implements Filterable {
+    List<UserModel> userModelList;
+    List<UserModel> getUserModelListFiltered;
+    Context context;
+    SelectedUser selectedUser;
+    int layout;
 
-    public UsersAdapter(List<UserModel> userModelList) {
+    public UsersAdapter(List<UserModel> userModelList, int layout, SelectedUser selectedUser) {
         this.userModelList = userModelList;
+        this.getUserModelListFiltered = userModelList;
+        this.selectedUser = selectedUser;
+        this.layout = layout;
     }
 
     @NonNull
     @Override
     public UsersAdapter.UsersAdapterVh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
-        return new UsersAdapterVh(LayoutInflater.from(context).inflate(R.layout.row_users, null));
+        return new UsersAdapterVh(LayoutInflater.from(context).inflate(layout, null));
     }
 
     @Override
     public void onBindViewHolder(@NonNull UsersAdapter.UsersAdapterVh holder, int position) {
+        UserModel userModel = userModelList.get(position);
 
+        String username = userModel.getUserName();
+        String prefix = userModel.getUserName().substring(0,1);
+
+        holder.tvUsername.setText(username);
+        holder.tvPrefix.setText(prefix);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return userModelList.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                FilterResults filterResults = new FilterResults();
+                if(charSequence == null || charSequence.length() == 0) {
+                    filterResults.count = getUserModelListFiltered.size();
+                    filterResults.values = getUserModelListFiltered;
+                } else {
+                    String searchChr = charSequence.toString().toLowerCase();
+                    List<UserModel> resultData = new ArrayList<>();
+                    for(UserModel userModel: getUserModelListFiltered) {
+                        if(userModel.getUserName().toLowerCase().contains(searchChr)){
+                            resultData.add(userModel);
+                        }
+                        filterResults.count = resultData.size();
+                        filterResults.values = resultData;
+                    }
+                }
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                userModelList = (List<UserModel>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+        return filter;
+    }
+
+    public interface SelectedUser{
+        void selectedUser(UserModel userModel);
     }
 
     public class UsersAdapterVh extends RecyclerView.ViewHolder {
@@ -46,6 +97,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersAdapter
             tvPrefix = itemView.findViewById(R.id.prefix);
             tvUsername = itemView.findViewById(R.id.username);
             imgIcon = itemView.findViewById(R.id.imageview);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    selectedUser.selectedUser(userModelList.get(getAbsoluteAdapterPosition()));
+                }
+            });
         }
     }
+
 }
