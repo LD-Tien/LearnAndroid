@@ -51,6 +51,7 @@ public class UpdateMovieActivity extends AppCompatActivity {
 
         setDataActivity();
 
+
         btnPaste.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,6 +113,7 @@ public class UpdateMovieActivity extends AppCompatActivity {
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                         Movie m = snapshot.getValue(Movie.class);
                         if(movie.getName().equals(m.getName()) && movie.getDuration().equals(m.getDuration()) && movie.getProductionYear() == m.getProductionYear() && movie.getCategories().equals(m.getCategories()) && movie.getRate().equals(m.getRate())) {
+                            movie = getDataMovieFromActivity();
                             myData.child("Movie").child(snapshot.getKey()).setValue(movie);
                             Toast.makeText(UpdateMovieActivity.this, "Updated", Toast.LENGTH_SHORT).show();
                             finish();
@@ -183,6 +185,19 @@ public class UpdateMovieActivity extends AppCompatActivity {
         categoryList.add(new Category("Sci-fi"));
         categoryList.add(new Category("Thrillers"));
         return categoryList;
+    }
+
+    private Movie getDataMovieFromActivity() {
+        Movie movie = new Movie();
+        movie.setName(edtName.getText().toString());
+        movie.setCategories(spinnerCategory.getSelectedItem().toString());
+        movie.setDuration(edtDuration.getText().toString());
+        movie.setProductionYear(Integer.parseInt(edtProductionYear.getText().toString()));
+        movie.setDescription(edtDescription.getText().toString());
+        movie.setImgUrl(edtUrl.getText().toString());
+        movie.setFavorite(false);
+        movie.setRate(0.0);
+        return movie;
     }
 
     private void anhXa() {
