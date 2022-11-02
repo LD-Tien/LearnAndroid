@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
 import com.ldt.movielistcrud.R;
 import com.ldt.movielistcrud.model.Movie;
 

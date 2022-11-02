@@ -150,13 +150,13 @@
                         android:button="@drawable/state_checkbox"
                         android:buttonTint="@color/tomato" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-12dp"
-                        android:text="2k"
-                        android:textColor="@color/tomato"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="-12dp"-->
+<!--                        android:text="2k"-->
+<!--                        android:textColor="@color/tomato"-->
+<!--                        android:textStyle="bold" />-->
                 </LinearLayout>
 
 

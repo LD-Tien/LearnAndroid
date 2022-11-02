@@ -11,7 +11,7 @@
         android:id="@+id/imageProfile"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@mipmap/ic_launcher_round"
+        android:src="@drawable/user_avatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,7 +29,7 @@
         android:id="@+id/tvFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Full name"
+        android:text="Lê Đức Tiên"
         android:textColor="@color/light"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -43,7 +43,7 @@
         android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User name"
+        android:text="2050531200309"
         android:textColor="@color/light"
         android:textSize="16sp"
         tools:layout_editor_absoluteX="126dp"

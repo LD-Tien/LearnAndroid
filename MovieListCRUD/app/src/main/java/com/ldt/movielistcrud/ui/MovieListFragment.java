@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,6 +31,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.ldt.movielistcrud.R;
 import com.ldt.movielistcrud.adapter.MovieRecyclerAdapter;
 import com.ldt.movielistcrud.model.Movie;
@@ -50,6 +52,7 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
     private DatabaseReference myData = FirebaseDatabase.getInstance().getReference();
     private FloatingActionButton btnAdd;
     private EditText edtSearch;
+    SwipeRefreshLayout swipeRefreshLayout;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -97,6 +100,7 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
 
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -111,6 +115,15 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
         anhXa();
 
         movieList = new ArrayList<>();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                movieList.clear();
+                movieList = getMovies();
+                movieRecyclerAdapter.notifyDataSetChanged();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
         movieList = getMovies();
         movieRecyclerAdapter = new MovieRecyclerAdapter(getActivity(), this);
         movieRecyclerAdapter.setData(movieList);
@@ -144,6 +157,20 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
             }
         });
 
+        myData.child("Movie").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                movieList.clear();
+                movieList = getMovies();
+                movieRecyclerAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         return view;
     }
 
@@ -164,6 +191,7 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
                 Movie m =snapshot.getValue(Movie.class);
                 movieList.add(m);
                 movieRecyclerAdapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -186,6 +214,7 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
 
             }
         });
+
         return movieList;
     }
 
@@ -194,6 +223,7 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
         rcvMovie = view.findViewById(R.id.rcvMovie);
         btnAdd = view.findViewById(R.id.btnAdd);
         edtSearch = view.findViewById(R.id.edtSearch);
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
     }
 
     @Override
@@ -201,7 +231,6 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
         Movie movie = movieList.get(position);
         Intent intent = new Intent(getActivity(), MovieDetailsActivity.class);
         intent.putExtra("movie", movie);
-        intent.putExtra("position" ,position);
         startActivity(intent);
     }
 }
