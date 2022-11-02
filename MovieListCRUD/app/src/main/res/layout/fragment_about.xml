@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AboutFragment"
+    android:background="@color/dark_blue">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:divider="@drawable/empty_tall_divider"
+            android:showDividers="middle">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thông tin người thực hiện"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/light"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Họ tên: Lê Đức Tiên"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@color/light"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MSV: 2050531200309"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@color/light"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LHP: 122LTTD01"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@color/light"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Liên hệ"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/light"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+84704518500"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@color/light"
+                android:drawableLeft="@drawable/ic_baseline_phone_24"
+                android:drawableTint="@color/light"
+                android:drawablePadding="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="leductien00@gmail.com"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@color/light"
+                android:drawableLeft="@drawable/ic_baseline_email_24"
+                android:drawableTint="@color/light"
+                android:drawablePadding="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Github"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/light"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="https://github.com/LD-Tien"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:textColor="@color/light"
+                android:drawableLeft="@drawable/ic_baseline_link_24"
+                android:drawableTint="@color/light"
+                android:drawablePadding="12dp"/>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
