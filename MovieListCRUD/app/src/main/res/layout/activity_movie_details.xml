@@ -6,9 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.MovieDetailsActivity"
     android:background="@color/dark_blue">
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -161,5 +164,44 @@
 
         </RelativeLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        android:padding="12dp"
+        android:orientation="horizontal"
+        android:divider="@drawable/empty_tall_divider"
+        android:showDividers="middle">
+
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_baseline_delete_24"
+            app:tint="@color/white"
+            android:backgroundTint="@color/tomato"/>
+
+        <ImageButton
+            android:id="@+id/btnEdit"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_baseline_edit_note_24"
+            android:backgroundTint="@color/orange_light"
+            app:tint="@color/white"
+            />
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:tint="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
