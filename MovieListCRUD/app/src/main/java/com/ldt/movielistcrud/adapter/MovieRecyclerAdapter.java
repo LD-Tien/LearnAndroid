@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.ldt.movielistcrud.R;
 import com.ldt.movielistcrud.model.Movie;
 
@@ -58,10 +59,14 @@ public class MovieRecyclerAdapter extends RecyclerView.Adapter<MovieRecyclerAdap
             }
         });
 
-        holder.imgMovie.setImageResource(movie.getImgResource());
+        Glide.with(holder.imgMovie.getContext())
+                .load(movieList.get(position).getImgUrl())
+                .placeholder(R.mipmap.ic_launcher) // ảnh mặt định
+                .error(R.drawable.ic_baseline_error_72) // ảnh khi lỗi
+                .into(holder.imgMovie);
         holder.tvMovieName.setText(movie.getName());
         holder.tvMovieDuration.setText(movie.getDuration());
-        holder.tvMovieProductionYear.setText(movie.getProductionYear().toString());
+        holder.tvMovieProductionYear.setText((String.valueOf(movie.getProductionYear())));
         holder.tvMovieCategories.setText(movie.getCategories());
         holder.tvMovieRate.setText(movie.getRate().toString());
         holder.cbMovieFavorite.setChecked(movie.isFavorite());

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MovieDetailsActivity"
+    android:background="@color/dark_blue">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgMovie"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/gradient_background_90"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/gradient_background_90"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/imgMovie"
+                android:layout_marginTop="12dp"
+                android:divider="@drawable/empty_tall_divider"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/tvMovieName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Movie name"
+                    android:textColor="@color/light"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvMovieDuration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                        android:drawablePadding="8dp"
+                        android:text="120p"
+                        android:textColor="@color/light"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/tvMovieProductionYear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="48dp"
+                        android:layout_toRightOf="@+id/tvMovieDuration"
+                        android:drawableLeft="@drawable/ic_baseline_calendar_month_24"
+                        android:drawablePadding="8dp"
+                        android:text="2022"
+                        android:textColor="@color/light"
+                        android:textSize="20dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvMovieCategories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/ic_baseline_category_24"
+                    android:drawablePadding="8dp"
+                    android:text="Thể loại"
+                    android:textColor="@color/light"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/ic_baseline_description_24"
+                    android:drawablePadding="8dp"
+                    android:gravity="top"
+                    android:text="Mô tả: ..."
+                    android:textColor="@color/light"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+            <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+            <!--        android:id="@+id/fab"-->
+            <!--        android:layout_width="wrap_content"-->
+            <!--        android:layout_height="wrap_content"-->
+            <!--        android:layout_alignParentRight="true"-->
+            <!--        android:layout_alignParentBottom="true"-->
+            <!--        android:backgroundTint="@color/tomato"-->
+            <!--        app:srcCompat="@drawable/ic_baseline_arrow_back_36" />-->
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="158dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
+
+                <TextView
+                    android:id="@+id/tvMovieRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:drawableRight="@drawable/ic_baseline_star_rate_16"
+                    android:text="9.9"
+                    android:textColor="@color/orange_light"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cbMovieFavorite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:button="@drawable/state_checkbox"
+                        android:buttonTint="@color/tomato" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-12dp"
+                        android:text="2k"
+                        android:textColor="@color/tomato"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

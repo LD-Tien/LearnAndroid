@@ -15,16 +15,26 @@
             android:id="@+id/imgMovie"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:layout_marginLeft="75dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background" />
 
-
-        <ImageView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_weight="1"
-            android:background="@drawable/gradient_background" />
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/gradient_background" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -41,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:maxHeight="48dp"
-                android:text="Movie name"
+                android:text="Movie name "
                 android:textColor="@color/light"
                 android:textStyle="bold"
                 android:textSize="20sp"
@@ -103,6 +113,7 @@
                 android:id="@+id/cbMovieFavorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:button="@drawable/state_checkbox"
                 android:buttonTint="@color/tomato" />
 
@@ -115,7 +126,6 @@
                 android:textColor="@color/tomato"
                 />
         </LinearLayout>
-
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

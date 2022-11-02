@@ -3,18 +3,23 @@ package com.ldt.movielistcrud.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Movie implements Parcelable {
-    private int imgResource;
+import java.io.Serializable;
+
+public class Movie implements Serializable {
+    private String imgUrl;
     private String Name;
     private String Duration;
     private String Categories;
-    private Short ProductionYear;
+    private int ProductionYear;
     private String Description;
     private Double rate;
     private boolean isFavorite = false;
 
-    public Movie(int imgResource, String name, String duration, String categories, Short productionYear, String description, Double rate, boolean isFavorite) {
-        this.imgResource = imgResource;
+    public Movie() {
+    }
+
+    public Movie(String imgUrl, String name, String duration, String categories, int productionYear, String description, Double rate, boolean isFavorite) {
+        this.imgUrl = imgUrl;
         Name = name;
         Duration = duration;
         Categories = categories;
@@ -24,43 +29,12 @@ public class Movie implements Parcelable {
         this.isFavorite = isFavorite;
     }
 
-    public Movie() {
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    protected Movie(Parcel in) {
-        imgResource = in.readInt();
-        Name = in.readString();
-        Duration = in.readString();
-        Categories = in.readString();
-        int tmpProductionYear = in.readInt();
-        ProductionYear = tmpProductionYear != Integer.MAX_VALUE ? (short) tmpProductionYear : null;
-        Description = in.readString();
-        if (in.readByte() == 0) {
-            rate = null;
-        } else {
-            rate = in.readDouble();
-        }
-        isFavorite = in.readByte() != 0;
-    }
-
-    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
-        @Override
-        public Movie createFromParcel(Parcel in) {
-            return new Movie(in);
-        }
-
-        @Override
-        public Movie[] newArray(int size) {
-            return new Movie[size];
-        }
-    };
-
-    public int getImgResource() {
-        return imgResource;
-    }
-
-    public void setImgResource(int imgResource) {
-        this.imgResource = imgResource;
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public String getName() {
@@ -87,11 +61,11 @@ public class Movie implements Parcelable {
         Categories = categories;
     }
 
-    public Short getProductionYear() {
+    public int getProductionYear() {
         return ProductionYear;
     }
 
-    public void setProductionYear(Short productionYear) {
+    public void setProductionYear(int productionYear) {
         ProductionYear = productionYear;
     }
 
@@ -117,27 +91,5 @@ public class Movie implements Parcelable {
 
     public void setFavorite(boolean favorite) {
         isFavorite = favorite;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(imgResource);
-        parcel.writeString(Name);
-        parcel.writeString(Duration);
-        parcel.writeString(Categories);
-        parcel.writeInt(ProductionYear != null ? (int) ProductionYear : Integer.MAX_VALUE);
-        parcel.writeString(Description);
-        if (rate == null) {
-            parcel.writeByte((byte) 0);
-        } else {
-            parcel.writeByte((byte) 1);
-            parcel.writeDouble(rate);
-        }
-        parcel.writeByte((byte) (isFavorite ? 1 : 0));
     }
 }
