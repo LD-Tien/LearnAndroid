@@ -22,7 +22,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/thumbnailMovie"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:src="@drawable/ic_launcher_background"
@@ -45,17 +45,19 @@
                 app:boxStrokeColor="@color/gray_light"
                 app:hintTextColor="@color/gray_light"
                 app:layout_constraintEnd_toStartOf="@+id/btnPaste"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/thumbnailMovie"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtUrl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/light" />
+                    android:textColor="@color/light"
+                    android:lines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
+                android:id="@+id/btnClear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#00FFFFFF"
@@ -90,7 +92,7 @@
                 app:cornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView" />
+                app:layout_constraintStart_toEndOf="@+id/thumbnailMovie" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -201,8 +203,12 @@
             android:backgroundTint="#00E53854">
 
             <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerCategory"
                 android:layout_width="match_parent"
-                android:layout_height="55dp" />
+                android:layout_height="55dp"
+                android:textAlignment="center"
+
+                />
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -231,6 +237,13 @@
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical"/>
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdd"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Add"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
