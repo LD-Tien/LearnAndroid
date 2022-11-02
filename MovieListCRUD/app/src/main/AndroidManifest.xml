@@ -14,7 +14,7 @@
         android:theme="@style/Theme.MovieListCRUD"
         tools:targetApi="31">
         <activity
-            android:name=".ui.MovieDetailsActivity"
+            android:name=".ui.AddMovieActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MovieDetailsActivity"

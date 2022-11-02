@@ -14,8 +14,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,10 +36,12 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.OnMovieListener{
+    private View view;
     private List<Movie> movieList;
     private RecyclerView rcvMovie;
     private MovieRecyclerAdapter movieRecyclerAdapter;
     private DatabaseReference myData = FirebaseDatabase.getInstance().getReference();
+    private FloatingActionButton btnAdd;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -94,22 +98,26 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
 //        }
 //        movieList = movieDao.getMovies();
 
-
-
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_movie_list, container, false);
-
+        view =  inflater.inflate(R.layout.fragment_movie_list, container, false);
+        anhXa();
 
         movieList = new ArrayList<>();
-
         movieList = getMovies();
-        rcvMovie = view.findViewById(R.id.rcvMovie);
         movieRecyclerAdapter = new MovieRecyclerAdapter(getActivity(), this);
         movieRecyclerAdapter.setData(movieList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
         rcvMovie.setLayoutManager(linearLayoutManager);
         rcvMovie.setAdapter(movieRecyclerAdapter);
         rcvMovie.setItemAnimator(new DefaultItemAnimator());
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AddMovieActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
@@ -154,6 +162,11 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
             }
         });
         return movieList;
+    }
+
+    private void anhXa() {
+        rcvMovie = view.findViewById(R.id.rcvMovie);
+        btnAdd = view.findViewById(R.id.btnAdd);
     }
 
     @Override
