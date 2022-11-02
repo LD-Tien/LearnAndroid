@@ -5,16 +5,23 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -42,6 +49,7 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
     private MovieRecyclerAdapter movieRecyclerAdapter;
     private DatabaseReference myData = FirebaseDatabase.getInstance().getReference();
     private FloatingActionButton btnAdd;
+    private EditText edtSearch;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -119,6 +127,23 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
             }
         });
 
+        edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                movieRecyclerAdapter.getFilter().filter(edtSearch.getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         return view;
     }
 
@@ -164,9 +189,11 @@ public class MovieListFragment extends Fragment implements MovieRecyclerAdapter.
         return movieList;
     }
 
+
     private void anhXa() {
         rcvMovie = view.findViewById(R.id.rcvMovie);
         btnAdd = view.findViewById(R.id.btnAdd);
+        edtSearch = view.findViewById(R.id.edtSearch);
     }
 
     @Override

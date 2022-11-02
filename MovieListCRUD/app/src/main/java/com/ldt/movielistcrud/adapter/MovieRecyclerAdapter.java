@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,11 +20,13 @@ import com.bumptech.glide.Glide;
 import com.ldt.movielistcrud.R;
 import com.ldt.movielistcrud.model.Movie;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MovieRecyclerAdapter extends RecyclerView.Adapter<MovieRecyclerAdapter.MovieViewHolder>{
     private Context context;
     private List<Movie> movieList;
+    private List<Movie> movieList2;
     private OnMovieListener onMovieListener;
 
     public MovieRecyclerAdapter(FragmentActivity context, OnMovieListener onMovieListener) {
@@ -33,6 +36,7 @@ public class MovieRecyclerAdapter extends RecyclerView.Adapter<MovieRecyclerAdap
 
     public void setData(List<Movie> movieList) {
         this.movieList = movieList;
+        this.movieList2 = movieList;
         notifyDataSetChanged(); // bin/ load dữ liệu vào MovieAdapter
     }
 
@@ -105,6 +109,37 @@ public class MovieRecyclerAdapter extends RecyclerView.Adapter<MovieRecyclerAdap
 
     public interface OnMovieListener {
         void onMovieClick(int position);
+    }
+
+    public Filter getFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                FilterResults filterResults = new FilterResults();
+                if(charSequence == null || charSequence.length() == 0) {
+                    filterResults.count = movieList2.size();
+                    filterResults.values = movieList2;
+                } else {
+                    String searchChr = charSequence.toString().toLowerCase();
+                    List<Movie> resultData = new ArrayList<>();
+                    for(Movie userModel: movieList2) {
+                        if(userModel.getName().toLowerCase().contains(searchChr)){
+                            resultData.add(userModel);
+                        }
+                        filterResults.count = resultData.size();
+                        filterResults.values = resultData;
+                    }
+                }
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                movieList = (List<Movie>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+        return filter;
     }
 
 }
