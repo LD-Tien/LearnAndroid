@@ -14,12 +14,13 @@
         android:divider="@drawable/empty_tall_divider"
         android:orientation="vertical"
         android:padding="24dp"
-        android:showDividers="middle">
+        android:showDividers="middle"
+        android:layout_above="@id/bottom"
+        android:gravity="center">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
             android:text="Sign up"
             android:textColor="#ccc"
             android:textSize="36sp"
@@ -81,6 +82,30 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Email"
+            android:textColorHint="@color/gray_light"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            app:boxStrokeColor="@color/gray_light"
+            app:hintTextColor="@color/gray_light">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtEmailSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_email_24"
+                android:drawablePadding="12dp"
+                android:drawableTint="@color/light"
+                android:textColor="@color/light" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Username"
             android:textColorHint="@color/gray_light"
             app:boxCornerRadiusBottomEnd="20dp"
@@ -100,7 +125,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -153,14 +177,14 @@
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/cbAgreePrivacyPolicy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/tomato"
-            android:text="I Agree with privacy and policy"
-            android:textColor="@color/light"
-            android:textSize="16sp" />
+        <!--        <CheckBox-->
+        <!--            android:id="@+id/cbAgreePrivacyPolicy"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:buttonTint="@color/tomato"-->
+        <!--            android:text="I Agree with privacy and policy"-->
+        <!--            android:textColor="@color/light"-->
+        <!--            android:textSize="16sp" />-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSignup"
@@ -176,29 +200,30 @@
 
 
     <LinearLayout
+        android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:gravity="center"
+        android:orientation="horizontal"
         android:padding="24dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Already have an account?"
             android:textColor="@color/light"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:text="Log in"
             android:textColor="@color/tomato"
-            android:layout_marginLeft="8dp"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
 </RelativeLayout>

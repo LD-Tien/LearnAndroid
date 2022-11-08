@@ -10,16 +10,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:divider="@drawable/empty_tall_divider"
         android:orientation="vertical"
         android:padding="24dp"
-        android:showDividers="middle">
+        android:showDividers="middle"
+        android:layout_above="@id/bottom"
+        android:gravity="center">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
             android:text="Login"
             android:textColor="@color/light"
             android:textSize="36dp"
@@ -29,7 +30,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Email"
             android:textColorHint="@color/gray_light"
             app:boxCornerRadiusBottomEnd="20dp"
             app:boxCornerRadiusBottomStart="20dp"
@@ -39,12 +40,13 @@
             app:hintTextColor="@color/gray_light">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtUsernameLogin"
-                android:drawableStart="@drawable/ic_baseline_account_circle_24"
-                android:drawablePadding="12dp"
+                android:id="@+id/edtEmailLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/light"/>
+                android:drawableStart="@drawable/ic_baseline_email_24"
+                android:drawablePadding="12dp"
+                android:drawableTint="@color/light"
+                android:textColor="@color/light" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -61,15 +63,14 @@
             app:boxStrokeColor="@color/gray_light"
             app:hintTextColor="@color/gray_light"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/light"
-            >
+            app:passwordToggleTint="@color/light">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtPasswordLogin"
-                android:drawableStart="@drawable/ic_baseline_lock_24"
-                android:drawablePadding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_lock_24"
+                android:drawablePadding="12dp"
                 android:inputType="textPassword"
                 android:textColor="@color/light" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -87,15 +88,15 @@
                 android:textColor="@color/light"
                 android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tvForgotPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:text="Forgot Password?"
-                android:textColor="@color/tomato"
-                android:textSize="16sp" />
+            <!--            <TextView-->
+            <!--                android:id="@+id/tvForgotPassword"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_alignParentRight="true"-->
+            <!--                android:layout_centerVertical="true"-->
+            <!--                android:text="Forgot Password?"-->
+            <!--                android:textColor="@color/tomato"-->
+            <!--                android:textSize="16sp" />-->
         </RelativeLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -111,54 +112,55 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
         android:padding="24dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Or Sign in with"
-            android:textColor="@color/light"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="12dp"/>
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Or Sign in with"-->
+<!--            android:textColor="@color/light"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:layout_marginBottom="12dp"/>-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="@drawable/empty_tall_divider"
-            android:orientation="horizontal"
-            android:showDividers="middle"
-            android:gravity="center">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:divider="@drawable/empty_tall_divider"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:showDividers="middle"-->
+<!--            android:gravity="center">-->
 
-            <ImageButton
-                android:id="@+id/btnFacebook"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:backgroundTint="@color/dark_blue"
-                android:src="@drawable/facebook_icon"
-                android:scaleType="fitStart"/>
+<!--            <ImageButton-->
+<!--                android:id="@+id/btnFacebook"-->
+<!--                android:layout_width="65dp"-->
+<!--                android:layout_height="65dp"-->
+<!--                android:backgroundTint="@color/dark_blue"-->
+<!--                android:src="@drawable/facebook_icon"-->
+<!--                android:scaleType="fitStart"/>-->
 
-            <ImageButton
-                android:id="@+id/btnGoogle"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:src="@drawable/google_icon"
-                android:scaleType="fitStart"
-                android:backgroundTint="@color/dark_blue"/>
-            <ImageButton
-                android:id="@+id/btnTwitter"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:src="@drawable/twitter_icon"
-                android:scaleType="fitStart"
-                android:backgroundTint="@color/dark_blue"/>
+<!--            <ImageButton-->
+<!--                android:id="@+id/btnGoogle"-->
+<!--                android:layout_width="65dp"-->
+<!--                android:layout_height="65dp"-->
+<!--                android:src="@drawable/google_icon"-->
+<!--                android:scaleType="fitStart"-->
+<!--                android:backgroundTint="@color/dark_blue"/>-->
+<!--            <ImageButton-->
+<!--                android:id="@+id/btnTwitter"-->
+<!--                android:layout_width="65dp"-->
+<!--                android:layout_height="65dp"-->
+<!--                android:src="@drawable/twitter_icon"-->
+<!--                android:scaleType="fitStart"-->
+<!--                android:backgroundTint="@color/dark_blue"/>-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"

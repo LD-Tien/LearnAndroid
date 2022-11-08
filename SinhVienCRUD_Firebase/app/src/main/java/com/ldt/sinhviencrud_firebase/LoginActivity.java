@@ -3,6 +3,7 @@ package com.ldt.sinhviencrud_firebase;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -10,18 +11,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
     private Button btnLogin;
     private TextView tvSignup;
-    private EditText edtUserName, edtUserPassword;
+    private EditText edtEmail, edtUserPassword;
     private CheckBox cbRememberPassword;
-    private List<User> userList;
+    private FirebaseAuth mAuth;
 
     SharedPreferences sharedPreferences;
 
@@ -29,54 +34,23 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mAuth = FirebaseAuth.getInstance();
 
         anhXa();
 
         sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
-        edtUserName.setText(sharedPreferences.getString("userName",""));
+        edtEmail.setText(sharedPreferences.getString("email",""));
         edtUserPassword.setText(sharedPreferences.getString("userPassword", ""));
         cbRememberPassword.setChecked(sharedPreferences.getBoolean("checked", false));
 
-        createDefaultUsers();
+//        createDefaultUsers();
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(edtUserName.getText().toString().isEmpty()) {
-                    edtUserName.requestFocus();
-                    return;
-                }
-                if(edtUserPassword.getText().toString().isEmpty()) {
-                    edtUserPassword.requestFocus();
-                    return;
-                }
-                String userName = edtUserName.getText().toString();
-                String userPassword = edtUserPassword.getText().toString();
-                for (User user: userList) {
-                    if (userName.equals(user.getUserName()) && userPassword.equals(user.getUserPassword())) {
-                        Intent intent = new Intent(LoginActivity.this, ListSinhVienActivity.class);
-                        intent.putExtra("user", user);
-                        if(cbRememberPassword.isChecked()) {
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("userName", user.getUserName());
-                            editor.putString("userPassword",  user.getUserPassword());
-                            editor.putInt("imgAvatar", user.getUserImg());
-                            editor.putString("userFullName", user.getUserFullName());
-                            editor.putBoolean("checked", true);
-                            editor.commit();
-                        } else {
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("userName", "");
-                            editor.putString("userPassword",  "");
-                            editor.putInt("imgAvatar", R.mipmap.ic_launcher_round);
-                            editor.putString("userFullName", "");
-                            editor.putBoolean("checked", false);
-                            editor.commit();
-                        }
-                        startActivity(intent);
-                        return;
-                    }
-                }
-                Toast.makeText(LoginActivity.this, "Đăng nhập không thành công!", Toast.LENGTH_SHORT).show();
+                // kiểm tra nhập thông tin
+
+                login();
+
             }
         });
 
@@ -92,14 +66,52 @@ public class LoginActivity extends AppCompatActivity {
     private void anhXa() {
         btnLogin = findViewById(R.id.btnLogin);
         tvSignup = findViewById(R.id.tvSignup);
-        edtUserName = findViewById(R.id.edtUsernameLogin);
+        edtEmail = findViewById(R.id.edtEmailLogin);
         edtUserPassword = findViewById(R.id.edtPasswordLogin);
         cbRememberPassword = findViewById(R.id.cbRememberPassword);
     }
 
-    private void createDefaultUsers() {
-        userList = new ArrayList<>();
-        userList.add(new User(R.drawable.user_avatar, "2050531200309", "1234", "Lê Đức Tiên"));
+    private void login() {
+        String email = edtEmail.getText().toString();
+        String password = edtUserPassword.getText().toString();
+        if(email.isEmpty()) {
+            edtEmail.requestFocus();
+            return;
+        }
+        if(password.isEmpty()) {
+            edtUserPassword.requestFocus();
+            return;
+        }
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Intent intent = new Intent(LoginActivity.this, ListSinhVienActivity.class);
+                            intent.putExtra("user", user);
+                            if(cbRememberPassword.isChecked()) {
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("email", email);
+                                editor.putString("userPassword",  password);
+                                editor.putBoolean("checked", true);
+                                editor.commit();
+                            } else {
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("email", "");
+                                editor.putString("userPassword",  "");
+                                editor.putBoolean("checked", false);
+                                editor.commit();
+                            }
+                            startActivity(intent);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("aaa", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
-
 }

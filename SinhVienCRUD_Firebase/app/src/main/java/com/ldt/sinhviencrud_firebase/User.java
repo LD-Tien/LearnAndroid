@@ -3,53 +3,22 @@ package com.ldt.sinhviencrud_firebase;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class User implements Parcelable {
-    private int userImg;
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String userName;
     private String userPassword;
     private String userFullName;
-
-    public User(int userImg, String userName, String userPassword, String userFullName) {
-        this.userImg = userImg;
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userFullName = userFullName;
-    }
-
-    public User(String userName, String userPassword, String userFullName) {
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userFullName = userFullName;
-    }
+    private String email;
 
     public User() {
     }
 
-    protected User(Parcel in) {
-        userImg = in.readInt();
-        userName = in.readString();
-        userPassword = in.readString();
-        userFullName = in.readString();
-    }
-
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
-
-    public int getUserImg() {
-        return userImg;
-    }
-
-    public void setUserImg(int userImg) {
-        this.userImg = userImg;
+    public User(String userName, String userPassword, String userFullName, String email) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userFullName = userFullName;
+        this.email = email;
     }
 
     public String getUserName() {
@@ -76,16 +45,11 @@ public class User implements Parcelable {
         this.userFullName = userFullName;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getEmail() {
+        return email;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(userImg);
-        parcel.writeString(userName);
-        parcel.writeString(userPassword);
-        parcel.writeString(userFullName);
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
