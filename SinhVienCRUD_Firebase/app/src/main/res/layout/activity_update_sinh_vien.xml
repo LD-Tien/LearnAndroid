@@ -142,4 +142,14 @@
             app:cornerRadius="20dp" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:gravity="center"
+        android:text="Lê Đức Tiên - 2050531200309"
+        android:textColor="@color/light"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
 </LinearLayout>
