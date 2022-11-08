@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "156435032424",
+    "project_id": "sinhviencrud-firebase",
+    "storage_bucket": "sinhviencrud-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156435032424:android:1f59a5362e656268e58edd",
+        "android_client_info": {
+          "package_name": "com.ldt.sinhviencrud_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156435032424-4i0c9e1gdjppl0okgp5c663h3jls4ena.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUDGTMYva3npk8yVeCvJeyo-Wgyi_1fBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156435032424-4i0c9e1gdjppl0okgp5c663h3jls4ena.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
