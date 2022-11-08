@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateSinhVienActivity"
+    android:orientation="vertical"
+    android:background="@color/dark_blue">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:gravity="center"
+        android:text="Cập nhật sinh viên"
+        android:textColor="@color/light"
+        android:textSize="36dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mã sinh viên"
+        android:textColorHint="@color/gray_light"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/gray_light"
+        app:hintTextColor="@color/gray_light"
+        android:layout_margin="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtMSV"
+            android:drawablePadding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Họ tên"
+        android:textColorHint="@color/gray_light"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/gray_light"
+        app:hintTextColor="@color/gray_light"
+        android:layout_margin="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtHoTen"
+            android:drawablePadding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lớp học phần"
+        android:textColorHint="@color/gray_light"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/gray_light"
+        app:hintTextColor="@color/gray_light"
+        android:layout_margin="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtLHP"
+            android:drawablePadding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Điểm trung bình"
+        android:textColorHint="@color/gray_light"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/gray_light"
+        app:hintTextColor="@color/gray_light"
+        android:layout_margin="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtDTB"
+            android:drawablePadding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="12dp"
+        android:divider="@drawable/empty_tall_divider"
+        android:showDividers="middle">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdd"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:backgroundTint="@color/tomato"
+            android:text="Cập nhật"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:backgroundTint="@color/white"
+            android:text="Hủy"
+            android:textColor="@color/tomato"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp" />
+    </LinearLayout>
+
+</LinearLayout>
