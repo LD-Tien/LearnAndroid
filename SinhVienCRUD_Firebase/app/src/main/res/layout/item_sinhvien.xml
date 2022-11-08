@@ -6,49 +6,85 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="12dp"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="10dp"
+    android:backgroundTint="@color/light">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="12dp"
-        android:divider="@drawable/empty_tall_divider"
-        android:showDividers="middle">
-
-        <TextView
-            android:id="@+id/tvMSV"
-            android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="MSV"
-            android:textColor="@color/dark_blue"
-            android:textSize="20dp"/>
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:divider="@drawable/empty_tall_divider"
+            android:showDividers="middle"
+            android:layout_weight="3">
 
-        <TextView
-            android:id="@+id/tvHoTen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Họ tên"
-            android:textColor="@color/dark_blue"
-            android:textSize="20dp"/>
+            <TextView
+                android:id="@+id/tvMSV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MSV"
+                android:textColor="@color/dark_blue"
+                android:textSize="20dp"/>
 
-        <TextView
-            android:id="@+id/tvLHP"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LHP"
-            android:textColor="@color/dark_blue"
-            android:textSize="20dp"/>
+            <TextView
+                android:id="@+id/tvHoTen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Họ tên"
+                android:textColor="@color/dark_blue"
+                android:textSize="20dp"/>
 
-        <TextView
-            android:id="@+id/tvDTB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DTB"
-            android:textColor="@color/dark_blue"
-            android:textSize="20dp"/>
+            <TextView
+                android:id="@+id/tvLHP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LHP"
+                android:textColor="@color/dark_blue"
+                android:textSize="20dp"/>
 
+            <TextView
+                android:id="@+id/tvDTB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DTB"
+                android:textColor="@color/dark_blue"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:divider="@drawable/empty_tall_divider"
+            android:showDividers="middle">
+
+            <ImageButton
+                android:id="@+id/btnUpdate"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_edit_24"
+                app:tint="@color/orange"
+                android:background="@drawable/roundcorner"/>
+
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_delete_24"
+                app:tint="@color/red"
+                android:background="@drawable/roundcorner"/>
+
+
+        </LinearLayout>
     </LinearLayout>
+
+
 
 
 

@@ -1,6 +1,8 @@
 package com.ldt.sinhviencrud_firebase;
 
-public class SinhVien {
+import java.io.Serializable;
+
+public class SinhVien implements Serializable {
     private String msv, hoTen, lhp;
     private Double dtb;
 

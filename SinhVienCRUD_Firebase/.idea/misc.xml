@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/HocTap/Android/LearnAndroid/SinhVienCRUD_Firebase/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.138" />
+        <entry key="..\:/HocTap/Android/LearnAndroid/SinhVienCRUD_Firebase/app/src/main/res/drawable/roundcorner.xml" value="0.138" />
         <entry key="..\:/HocTap/Android/LearnAndroid/SinhVienCRUD_Firebase/app/src/main/res/layout/activity_add_sinh_vien.xml" value="0.25" />
         <entry key="..\:/HocTap/Android/LearnAndroid/SinhVienCRUD_Firebase/app/src/main/res/layout/activity_list_sinh_vien.xml" value="0.25" />
         <entry key="..\:/HocTap/Android/LearnAndroid/SinhVienCRUD_Firebase/app/src/main/res/layout/activity_login.xml" value="0.25" />

@@ -30,14 +30,16 @@
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/gray_light"
         app:hintTextColor="@color/gray_light"
-        android:layout_margin="12dp">
+        android:layout_margin="12dp"
+        android:enabled="false">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtMSV"
             android:drawablePadding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/light"/>
+            android:textColor="@color/light"
+            android:enabled="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -116,7 +118,7 @@
         android:showDividers="middle">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAdd"
+            android:id="@+id/btnUpdate"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="65dp"
